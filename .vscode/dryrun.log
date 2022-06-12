@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/juho/couding/cpp/ConsoleApps/file'
+g++   obj/main.o -o bin/file
+make: Leaving directory '/home/juho/couding/cpp/ConsoleApps/file'
+ 
