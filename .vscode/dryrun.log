@@ -1,5 +1,6 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/juho/couding/cpp/ConsoleApps/file'
+g++  -c src/main.cpp -o obj/main.o
 g++   obj/main.o -o bin/file
 make: Leaving directory '/home/juho/couding/cpp/ConsoleApps/file'
  

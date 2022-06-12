@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun 12 20:58:49 2022
+# Make data base, printed on Sun Jun 12 21:05:57 2022
 
 # Variables
 
@@ -25,7 +23,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e88c4fbe-04a6-4c28-ba86-59ddc7d39d35.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f209b859-e0f6-4b48-82e4-8081cde3652d.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/plasma.mandatory.path
 # environment
@@ -79,7 +77,7 @@ CURDIR := /home/juho/couding/cpp/ConsoleApps/file
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'makefile', line 5)
 SRCS = $(wildcard $(SRC)/*.cpp)
 # automatic
@@ -107,7 +105,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 33363
+VSCODE_PID = 34809
 # environment
 SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = 0
 # environment
@@ -258,9 +256,9 @@ LC_IDENTIFICATION = fi_FI.UTF-8
 # Directories
 
 # src (device 66310, inode 5800357): 3 files, no impossibilities.
-# . (device 66310, inode 5800032): 8 files, no impossibilities.
+# . (device 66310, inode 5800032): 10 files, no impossibilities.
 
-# 11 files, no impossibilities in 2 directories.
+# 13 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -291,7 +289,6 @@ clean:
 bin/file: obj/main.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 14):
 	$(CC) $(Cflags) $(OBJS) -o $@
@@ -312,6 +309,9 @@ all:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 #  Last modified 2022-06-12 20:58:48.526623537
 #  File has been updated.
 #  Successfully updated.
@@ -324,12 +324,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 145 B / avg = 8 B
-# current buf: size = 8162 B / used = 145 B / count = 18 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 161 B / avg = 8 B
+# current buf: size = 8162 B / used = 161 B / count = 20 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 37%
+# strcache performance: lookups = 31 / hit rate = 35%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/29=0%
-# Finished Make data base on Sun Jun 12 20:58:49 2022
+# Load=20/8192=0%, Rehash=0, Collisions=0/31=0%
+# Finished Make data base on Sun Jun 12 21:05:57 2022
 
  
