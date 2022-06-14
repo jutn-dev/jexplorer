@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,24 +8,24 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun 12 21:05:57 2022
+# Make data base, printed on Mon Jun 13 17:22:06 2022
 
 # Variables
 
-# makefile (from 'makefile', line 7)
+# makefile (from 'makefile', line 9)
 OBJ = obj
 # environment
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
-# makefile (from 'makefile', line 4)
+# makefile (from 'makefile', line 6)
 SRC = src
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
-# makefile (from 'makefile', line 10)
+# makefile (from 'makefile', line 12)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f209b859-e0f6-4b48-82e4-8081cde3652d.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-dbc4ef2b-0816-4660-9d1f-2c03c8ddf11c.sock
 # environment
 MANDATORY_PATH = /usr/share/gconf/plasma.mandatory.path
 # environment
@@ -32,6 +34,8 @@ LC_NAME = fi_FI.UTF-8
 LC_NUMERIC = fi_FI.UTF-8
 # environment
 VSCODE_CWD = /home/juho
+# makefile (from 'makefile', line 4)
+LIBS = -lncurses
 # environment
 LC_ADDRESS = fi_FI.UTF-8
 # default
@@ -57,7 +61,7 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/juho/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/juho/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
 # environment
@@ -77,8 +81,8 @@ CURDIR := /home/juho/couding/cpp/ConsoleApps/file
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'makefile', line 5)
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# makefile (from 'makefile', line 7)
 SRCS = $(wildcard $(SRC)/*.cpp)
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
@@ -87,7 +91,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXd0KCyY/agent.1121
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXaKNtMK/agent.1097
 # default
 .SHELLFLAGS := -c
 # environment
@@ -105,7 +109,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 34809
+VSCODE_PID = 11795
 # environment
 SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = 0
 # environment
@@ -115,7 +119,7 @@ XDG_SESSION_TYPE = x11
 # environment
 DEVKITPPC = /opt/devkitpro/devkitPPC
 # environment
-SESSION_MANAGER = local/jutnKubuntu:@/tmp/.ICE-unix/1468,unix/jutnKubuntu:/tmp/.ICE-unix/1468
+SESSION_MANAGER = local/jutnKubuntu:@/tmp/.ICE-unix/1442,unix/jutnKubuntu:/tmp/.ICE-unix/1442
 # automatic
 *F = $(notdir $*)
 # environment
@@ -128,7 +132,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'makefile', line 8)
+# makefile (from 'makefile', line 10)
 OBJS = $(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
 # makefile
 SHELL = /bin/sh
@@ -149,7 +153,7 @@ LC_MONETARY = fi_FI.UTF-8
 # environment
 LC_TIME = fi_FI.UTF-8
 # environment
-INVOCATION_ID = d97aed236d8d495db8d87c4ac8e11e49
+INVOCATION_ID = 0179915aaa5449c39f5b3130ff2e4f16
 # environment
 VSCODE_LOG_NATIVE = false
 # environment
@@ -181,7 +185,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := bin/file
 # environment
-SYSTEMD_EXEC_PID = 1880
+SYSTEMD_EXEC_PID = 1732
 # environment
 DISPLAY = :0
 # environment
@@ -193,23 +197,23 @@ KDE_SESSION_UID = 1000
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1097
+MANAGERPID = 1073
 # environment
 LC_MEASUREMENT = fi_FI.UTF-8
 # environment
-SSH_AGENT_PID = 1242
+SSH_AGENT_PID = 1218
 # environment
 LC_PAPER = fi_FI.UTF-8
-# makefile (from 'makefile', line 11)
+# makefile (from 'makefile', line 13)
 BIN = $(BINDIR)/file
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:31615
+JOURNAL_STREAM = 8:37030
 # makefile (from 'makefile', line 2)
-Cflags = 
+Cflags = -g
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -221,7 +225,7 @@ HOME = /home/juho
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-e992050b-1.67.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-e992050b-1.68.0-main.sock
 # environment
 XDG_SESSION_ID = 3
 # environment
@@ -247,7 +251,7 @@ KDE_FULL_SESSION = true
 # environment
 LC_IDENTIFICATION = fi_FI.UTF-8
 # variable set hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=17/162=10%
+# Load=119/1024=12%, Rehash=0, Collisions=17/163=10%
 
 # Pattern-specific Variable Values
 
@@ -255,10 +259,10 @@ LC_IDENTIFICATION = fi_FI.UTF-8
 
 # Directories
 
-# src (device 66310, inode 5800357): 3 files, no impossibilities.
-# . (device 66310, inode 5800032): 10 files, no impossibilities.
+# src (device 66308, inode 5800357): 3 files, no impossibilities.
+# . (device 66308, inode 5800032): 12 files, no impossibilities.
 
-# 13 files, no impossibilities in 2 directories.
+# 15 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -270,7 +274,7 @@ obj/main.o: src/main.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 17):
+#  recipe to execute (from 'makefile', line 19):
 	$(CC) $(Cflags) -c $< -o $@
 
 # Not a target:
@@ -283,17 +287,18 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 20):
+#  recipe to execute (from 'makefile', line 22):
 	rm $(BINDIR)/* $(OBJ)/*
 
 bin/file: obj/main.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 14):
-	$(CC) $(Cflags) $(OBJS) -o $@
+#  recipe to execute (from 'makefile', line 16):
+	$(CC) $(Cflags) $(OBJS) -o $@ $(LIBS)
 
 # Not a target:
+ 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -309,10 +314,7 @@ all:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
-#  Last modified 2022-06-12 20:58:48.526623537
+#  Last modified 2022-06-13 17:19:26.967485536
 #  File has been updated.
 #  Successfully updated.
 
@@ -324,12 +326,12 @@ make: *** No rule to make target 'all'.  Stop.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 161 B / avg = 8 B
-# current buf: size = 8162 B / used = 161 B / count = 20 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 179 B / avg = 8 B
+# current buf: size = 8162 B / used = 179 B / count = 22 / avg = 8 B
 
-# strcache performance: lookups = 31 / hit rate = 35%
+# strcache performance: lookups = 33 / hit rate = 33%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/31=0%
-# Finished Make data base on Sun Jun 12 21:05:57 2022
+# Load=22/8192=0%, Rehash=0, Collisions=0/33=0%
+# Finished Make data base on Mon Jun 13 17:22:06 2022
 
  

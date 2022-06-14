@@ -1,5 +1,7 @@
 CC=g++
-Cflags= 
+Cflags=-g
+
+LIBS=-lncurses
 
 SRC=src
 SRCS=$(wildcard $(SRC)/*.cpp)
@@ -11,7 +13,7 @@ BINDIR=bin
 BIN=$(BINDIR)/file
 
 $(BIN): $(OBJS)
-	$(CC) $(Cflags) $(OBJS) -o $@
+	$(CC) $(Cflags) $(OBJS) -o $@ $(LIBS)
 
 $(OBJS): $(SRCS)
 	$(CC) $(Cflags) -c $< -o $@
