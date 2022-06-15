@@ -1,7 +1,5 @@
 CC=g++
-Cflags=-g
-
-LIBS=-lncurses
+Cflags=-g -I include -Wall -lncurses
 
 SRC=src
 SRCS=$(wildcard $(SRC)/*.cpp)
@@ -12,11 +10,15 @@ OBJS=$(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
 BINDIR=bin
 BIN=$(BINDIR)/file
 
-$(BIN): $(OBJS)
-	$(CC) $(Cflags) $(OBJS) -o $@ $(LIBS)
+all: $(BIN)
 
-$(OBJS): $(SRCS)
-	$(CC) $(Cflags) -c $< -o $@
+$(BIN): $(OBJS)
+	$(CC)  $(OBJS) -o $@ $(Cflags)
+
+$(OBJ)/%.o: $(SRC)/%.cpp
+	$(CC) -c $< -o $@  $(Cflags)
 
 clean:
-	rm $(BINDIR)/* $(OBJ)/*
+	rm $(OBJ)/* $(BIN)
+
+

@@ -1,6 +1,11 @@
 #include <iostream>
 #include <ncurses.h>
 #include <filesystem>
+#include <vector>
+
+#include "io.hpp"
+
+// void bb(char b);
 
 int main()
 {
@@ -9,31 +14,48 @@ int main()
     //     std::cout << entry.path() << std::endl;
     // if(system("konsole -e nvim") != 0)
     //     std::cout << " no terminal \n";
-
     // int b = 1;
+    std::string path = "/";
+    std::vector<Directory> Dir;
+    LoadDir(Dir, path);
+    // init("bbb");
+    // loadDir(3);
+
     initscr();
     cbreak();
     noecho();
 
     int beginX, beginY, endX, endY;
+    int oldbeginX, oldbeginY, oldendX, oldendY;
     getbegyx(stdscr, beginY, beginX);
     getmaxyx(stdscr, endY, endX);
 
-    WINDOW* filesWin = newwin(endY - 2, endX - 4, beginY + 1 ,beginX + 2);
+    WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
     keypad(filesWin, true);
-    box(filesWin,0,0);
-    //mvwprintw(filesWin,2, 2, "Wau!");
+    box(filesWin, 0, 0);
+    // mvwprintw(filesWin,2, 2, "Wau!");
 
-    std::string files[] = {"ok","wau","idk"};
-    int kohdalla = 0;
+    int highlighted = 0;
     int choice;
     while (true)
     {
-        for (int i = 0; i < 3; i++)
+        getmaxyx(stdscr, endY, endX);
+
+        if (oldendX != endX || oldendY != endY)
         {
-            if(i == kohdalla)
+            clear();
+            wclear(filesWin);
+            wresize(filesWin, endY - 2, endX - 4);
+            box(filesWin, 0, 0);
+            refresh();
+            wrefresh(filesWin);
+        }
+
+        for (int i = 0; i < Dir.size(); i++)
+        {
+            if (i == highlighted)
                 wattron(filesWin, A_REVERSE);
-            mvwprintw(filesWin,i+1,1,files[i].c_str());
+            mvwprintw(filesWin, i + 1, 1, "%s %s", Dir[i].fileType.c_str(), Dir[i].file.c_str());
             wattroff(filesWin, A_REVERSE);
         }
         choice = wgetch(filesWin);
@@ -41,34 +63,41 @@ int main()
         switch (choice)
         {
         case KEY_UP:
-            kohdalla--;
+            highlighted--;
             break;
-        
+
         case KEY_DOWN:
-            kohdalla++;
-        
+            highlighted++;
+
         default:
             break;
         }
-        if(kohdalla < 0)
-            kohdalla = 0;
-        if(kohdalla > 2)
-            kohdalla = 2;
-        
+        if (choice == 10)
+        {
+            if (std::filesystem::directory_entry(path + Dir[highlighted].file).is_directory())
+            {
+                path += Dir[highlighted].file + "/";
+                LoadDir(Dir, path);
+                wclear(filesWin);
+            }
+        }
+
+        if (highlighted < 0)
+            highlighted = 0;
+        if (highlighted > Dir.size())
+            highlighted = Dir.size() - 1;
+
+        oldendX = endX;
+        oldendY = endY;
+        oldbeginX = beginX;
+        oldbeginY = beginY;
     }
-    
 
     refresh();
     wrefresh(filesWin);
     getch();
 
-
     endwin();
 
     return 0;
 }
-
-
-
-//
-//
