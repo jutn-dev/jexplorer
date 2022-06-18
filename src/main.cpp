@@ -39,8 +39,7 @@ int main(int argc, char* argv[])
     box(filesWin.win, 0, 0);
     // mvwprintw(filesWin,2, 2, "Wau!");
     
-    int highlighted = 0;
-    int scroll = 0;
+
     int choice;
     while (true)
     {
@@ -52,26 +51,18 @@ int main(int argc, char* argv[])
             filesWin.resize(endY - 2, endX - 4, true);
         }
 
-        wclear(filesWin.win);
-        box(filesWin.win, 0, 0);
-        for (int i = 0 + scroll; i < Dir.size(); i++)
-        {
+        filesWin.printMenu(Dir);
 
-            if (i + scroll == highlighted)
-                wattron(filesWin.win, A_REVERSE);
-            mvwprintw(filesWin.win, i + 1 - scroll, 1, "%s %s", Dir[i].fileType.c_str(), Dir[i].file.c_str());
-            wattroff(filesWin.win, A_REVERSE);
-        }
         choice = wgetch(filesWin.win);
 
         switch (choice)
         {
         case KEY_UP:
-            scroll--;
+            filesWin.scroll--;
             break;
 
         case KEY_DOWN:
-            scroll++;
+            filesWin.scroll++;
 
         default:
             break;
@@ -82,10 +73,10 @@ int main(int argc, char* argv[])
             wclear(filesWin.win);
         }
 
-        if (highlighted < 0)
-            highlighted = 0;
-        if (highlighted > Dir.size())
-            highlighted = Dir.size() - 1;
+        if (filesWin.highlighted < 0)
+            filesWin.highlighted = 0;
+        if (filesWin.highlighted > Dir.size())
+            filesWin.highlighted = Dir.size() - 1;
 
         oldendX = endX;
         oldendY = endY;
