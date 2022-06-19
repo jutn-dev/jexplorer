@@ -10,11 +10,14 @@
 
 int main(int argc, char *argv[])
 {
-    std::string path = "/";
+    std::string homePath = getenv("HOME");
+
+    std::vector<std::string> path;
+    path.push_back("/");
 
     if (argc > 1)
     {
-        path = argv[1];
+        StringToPath(argv[1], path);
     }
 
     std::vector<Directory> Dir;
@@ -75,11 +78,27 @@ int main(int argc, char *argv[])
         default:
             break;
         }
-        if (choice == 10)
+        if (choice == KEY_RIGHT)
         {
-            path += '/' + Dir[filesWin.highlighted].file;
+            if (Dir[filesWin.highlighted].fileType == "dir")
+            {
+
+                path.push_back('/' + Dir[filesWin.highlighted].file);
+                LoadDir(Dir, path);
+                wclear(filesWin.win);
+                filesWin.scroll = 0;
+                filesWin.highlighted = 0;
+            }
+        }
+
+        if (choice == KEY_LEFT)
+        {
+
+            path.pop_back();
             LoadDir(Dir, path);
             wclear(filesWin.win);
+            filesWin.scroll = 0;
+            filesWin.highlighted = 0;
         }
 
         if (filesWin.highlighted < 0)

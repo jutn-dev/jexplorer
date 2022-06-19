@@ -10,4 +10,6 @@ struct Directory
 
 
 //loads directory
-void LoadDir(std::vector<Directory> &Dir, std::string path);
+void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path);
+
+void StringToPath(std::string path, std::vector<std::string> &pathV);
