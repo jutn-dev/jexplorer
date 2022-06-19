@@ -8,12 +8,11 @@
 
 // void bb(char b);
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-
     std::string path = "/";
 
-    if(argc > 1)
+    if (argc > 1)
     {
         path = argv[1];
     }
@@ -27,18 +26,17 @@ int main(int argc, char* argv[])
     cbreak();
     noecho();
 
-    int beginX, beginY, endX, endY;
-    int oldbeginX, oldbeginY, oldendX, oldendY;
+    int beginX, beginY, endX, endY = 0;
+    int oldbeginX, oldbeginY, oldendX, oldendY = 0;
     getbegyx(stdscr, beginY, beginX);
     getmaxyx(stdscr, endY, endX);
 
     window filesWin(endY - 2, endX - 4, beginY + 1, beginX + 2);
 
-    //WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
+    // WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
     keypad(filesWin.win, true);
     box(filesWin.win, 0, 0);
     // mvwprintw(filesWin,2, 2, "Wau!");
-    
 
     int choice;
     while (true)
@@ -47,7 +45,6 @@ int main(int argc, char* argv[])
         if (oldendX != endX || oldendY != endY)
         {
             clear();
-
             filesWin.resize(endY - 2, endX - 4, true);
         }
 
@@ -58,17 +55,29 @@ int main(int argc, char* argv[])
         switch (choice)
         {
         case KEY_UP:
-            filesWin.scroll--;
+            if (filesWin.highlighted > 0)
+            {
+                filesWin.highlighted--;
+                if (-1 == filesWin.highlighted - filesWin.scroll)
+                    filesWin.scroll--;
+            }
             break;
 
         case KEY_DOWN:
-            filesWin.scroll++;
+            if (filesWin.highlighted < Dir.size() - 1)
+            {
+                filesWin.highlighted++;
+                if (filesWin.highlighted - filesWin.scroll - filesWin.sizeY == -2)
+                    filesWin.scroll++;
+            }
+            break;
 
         default:
             break;
         }
         if (choice == 10)
         {
+            path += '/' + Dir[filesWin.highlighted].file;
             LoadDir(Dir, path);
             wclear(filesWin.win);
         }
@@ -86,7 +95,7 @@ int main(int argc, char* argv[])
 
     refresh();
     getch();
-    
+
     endwin();
 
     return 0;
