@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         filesWin.printMenu(Dir);
 
         choice = wgetch(filesWin.win);
-
+        refresh();
         switch (choice)
         {
         case KEY_UP:
@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
             {
 
                 path.push_back('/' + Dir[filesWin.highlighted].file);
-                LoadDir(Dir, path);
                 wclear(filesWin.win);
+                LoadDir(Dir, path);
                 filesWin.scroll = 0;
                 filesWin.highlighted = 0;
             }
@@ -93,12 +93,14 @@ int main(int argc, char *argv[])
 
         if (choice == KEY_LEFT)
         {
-
-            path.pop_back();
-            LoadDir(Dir, path);
-            wclear(filesWin.win);
-            filesWin.scroll = 0;
-            filesWin.highlighted = 0;
+            if (path.size() > 1)
+            {
+                path.pop_back();
+                wclear(filesWin.win);
+                LoadDir(Dir, path);
+                filesWin.scroll = 0;
+                filesWin.highlighted = 0;
+            }
         }
 
         if (filesWin.highlighted < 0)

@@ -16,7 +16,7 @@ window::window(int p_sizeY, int p_sizeX, int p_posY, int p_posX)
 
 void window::resize(int p_sizeY, int p_sizeX, bool p_withBox)
 {
-
+    
     wclear(win);
     wresize(win, p_sizeY, p_sizeX);
     if (p_withBox)
