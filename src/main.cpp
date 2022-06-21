@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 {
     // std::string homePath = getenv("HOME");
     std::vector<std::string> path;
-    // std::string b = runCommand("cat cdawwdadwaa", PathToString(path));
     path.push_back("/");
 
     if (argc > 1)
@@ -21,37 +20,33 @@ int main(int argc, char *argv[])
 
     std::vector<Directory> Dir;
     LoadDir(Dir, path);
-    // init("bbb");
-    // loadDir(3);
 
-    bool TerminalMode = false;
-    std::string command;
 
     initscr();
     cbreak();
     noecho();
 
-    int beginX, beginY, endX, endY = 0;
-    int oldbeginX, oldbeginY, oldendX, oldendY = 0;
-    getbegyx(stdscr, beginY, beginX);
-    getmaxyx(stdscr, endY, endX);
+    int sizeX, sizeY = 0;
+    int oldsizeX, oldsizeY = 0;
+    getmaxyx(stdscr, sizeY, sizeX);
 
-    window filesWin(endY - 3, endX - 4, beginY + 1, beginX + 2);
-    // TerminalWindow winn(endY - 1, endX - 2, endY - 2, endX - 2);
+    MenuWindow filesWin(sizeY - 3, sizeX - 4, 1, 2);
+    TerminalWindow terminalWin(sizeY - (sizeY - 2), sizeX - 4, sizeY - 2, 2);
     
 
     // WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
-    keypad(filesWin.win, true);
+    keypad(stdscr, true);
     box(filesWin.win, 0, 0);
     // mvwprintw(filesWin,2, 2, "Wau!");
 
-    int choice;
+    int input;
     while (true)
     {
-        getmaxyx(stdscr, endY, endX);
-        if (oldendX != endX || oldendY != endY)
+        getmaxyx(stdscr, sizeY, sizeX);
+        if (oldsizeX != sizeX || oldsizeY != sizeY)
         {
-            filesWin.resize(endY - 3, endX - 4, true);
+            filesWin.resize(sizeY - 3, sizeX - 4, 1, 2, true);
+            terminalWin.resize(terminalWin.sizeY, sizeX - 4,sizeY - 2, 2, false);
         }
 
         filesWin.printMenu(Dir);
@@ -59,51 +54,29 @@ int main(int argc, char *argv[])
         refresh();
 
         // input
-        choice = wgetch(filesWin.win);
+        wrefresh(terminalWin.win);
+        wrefresh(filesWin.win);
+        input = getch();
 
-        if (TerminalMode)
-        {
-            if (choice == 10)
-            {
-                std::string result = runCommand(command, PathToString(path));
-                move(endY - 1, 0);
-                if (result == "")
-                    printw("Error: command failed to execute");
-                else
-                {
-                    printw("%s", result.c_str());
-                }
-            }
-            else
-            {
-                command += (char)choice;
-                mvprintw(endY - 2, 1, "%s", command.c_str());
-            }
-            if (choice == 27) // 27 == esc
-            {
-                TerminalMode = false;
-                clear();
-                refresh();
-            }
-        }
+        if (terminalWin.TerminalMode)
+            terminalWin.input(input, PathToString(path));
 
-        if (!TerminalMode)
+        if (!terminalWin.TerminalMode)
         {
             erase();
-            filesWin.input(choice, Dir.size(), Dir, path);
-            if (choice == 58)
+            filesWin.input(input, Dir.size(), Dir, path);
+            if (input == 58)
             {
-                TerminalMode = true;
-                command = "";
-                mvprintw(endY - 2, 0, ":");
+                terminalWin.TerminalMode = true;
+                terminalWin.command = "";
+                mvwprintw(terminalWin.win,0, 0, ":");
             }
         }
 
         //
-        oldendX = endX;
-        oldendY = endY;
-        oldbeginX = beginX;
-        oldbeginY = beginY;
+        oldsizeX = sizeX;
+        oldsizeY = sizeY;
+
     }
 
     refresh();

@@ -1,12 +1,12 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
+# Built for x86_64-redhat-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 19:30:27 2022
+# Make data base, printed on Tue Jun 21 20:15:52 2022
 
 # Variables
 
@@ -25,21 +25,11 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d51af0e6-9cb1-44f9-a306-fd3c198d3d58.sock
-# environment
-MANDATORY_PATH = /usr/share/gconf/plasma.mandatory.path
-# environment
-LC_NAME = fi_FI.UTF-8
-# environment
-LC_NUMERIC = fi_FI.UTF-8
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8c92d06f-8e28-4784-8a12-241ef051bc7c.sock
 # environment
 VSCODE_CWD = /home/juho
-# environment
-LC_ADDRESS = fi_FI.UTF-8
 # default
 MAKE_COMMAND := make
-# environment
-QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -51,7 +41,7 @@ PWD = /home/juho/couding/cpp/ConsoleApps/file
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /usr/share/plasma:/usr/share/gnome:/home/juho/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_DATA_DIRS = /usr/share/kde-settings/kde-profile/default/share:/usr/local/share:/usr/share
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -59,9 +49,11 @@ VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/juho/.config/Code/CachedData/4af164ea3a06f701fe3e89a2bcbb421d2026b68f
+VSCODE_CODE_CACHE_PATH = /home/juho/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+# environment
+SSH_ASKPASS = /usr/bin/ksshaskpass
 # environment
 LANG = C
 # environment
@@ -69,11 +61,9 @@ XAUTHORITY = /home/juho/.Xauthority
 # default
 .LOADED := 
 # default
-.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # makefile
 MAKEFLAGS = pqrR
-# environment
-DEVKITARM = /opt/devkitpro/devkitARM
 # makefile
 CURDIR := /home/juho/couding/cpp/ConsoleApps/file
 # environment
@@ -89,11 +79,11 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXX7WUlv3/agent.1148
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXX7Xd7C4/agent.1276
 # default
 .SHELLFLAGS := -c
 # environment
-XDG_CONFIG_DIRS = /home/juho/.config/kdedefaults:/etc/xdg/xdg-plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings
+XDG_CONFIG_DIRS = /home/juho/.config/kdedefaults:/etc/xdg:/usr/share/kde-settings/kde-profile/default/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -107,17 +97,15 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 14710
-# environment
-SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = 0
+VSCODE_PID = 8134
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-DEVKITPPC = /opt/devkitpro/devkitPPC
+GDK_CORE_DEVICE_EVENTS = 1
 # environment
-SESSION_MANAGER = local/jutnKubuntu:@/tmp/.ICE-unix/1495,unix/jutnKubuntu:/tmp/.ICE-unix/1495
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1532,unix/unix:/tmp/.ICE-unix/1532
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,41 +117,43 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
-MAKE_HOST := x86_64-pc-linux-gnu
+MAKE_HOST := x86_64-redhat-linux-gnu
 # makefile (from 'makefile', line 8)
 OBJS = $(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
+# environment
+IMSETTINGS_INTEGRATE_DESKTOP = yes
 # makefile
 SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # environment
+XMODIFIERS = @im=none
+# environment
+SHLVL = 0
+# environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/juho/.cargo/bin:/opt/devkitpro/tools/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+IMSETTINGS_MODULE = none
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 # default
 MAKEFILES := 
-# environment
-LC_MONETARY = fi_FI.UTF-8
 # automatic
 ^F = $(notdir $^)
 # environment
-LC_TIME = fi_FI.UTF-8
-# environment
-INVOCATION_ID = da3986cadf90480098fa6f614e7d3ba9
+INVOCATION_ID = 84889ad8128f440292c9f5860d1368ed
 # environment
 VSCODE_LOG_NATIVE = false
-# environment
-LC_TELEPHONE = fi_FI.UTF-8
 # automatic
 ?F = $(notdir $?)
 # environment
 KDE_APPLICATIONS_AS_SCOPE = 1
 # environment
-DEVKITPRO = /opt/devkitpro
-# environment
 XDG_SEAT = seat0
+# environment
+GTK_IM_MODULE = gtk-im-context-simple
 # environment
 XDG_CURRENT_DESKTOP = KDE
 # automatic
@@ -171,7 +161,7 @@ XDG_CURRENT_DESKTOP = KDE
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # environment
-DESKTOP_SESSION = plasma
+DESKTOP_SESSION = plasmax11
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = KDE
 # 'override' directive
@@ -179,37 +169,31 @@ GNUMAKEFLAGS :=
 # environment
 LOGNAME = juho
 # environment
-XDG_VTNR = 1
+XDG_VTNR = 2
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1714
+SYSTEMD_EXEC_PID = 2248
 # environment
 DISPLAY = :0
 # environment
 USER = juho
-# environment
-DEFAULTS_PATH = /usr/share/gconf/plasma.default.path
-# environment
-KDE_SESSION_UID = 1000
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1124
+KDE_SESSION_UID = 1000
 # environment
-LC_MEASUREMENT = fi_FI.UTF-8
+MANAGERPID = 1257
 # environment
-SSH_AGENT_PID = 1269
+SSH_AGENT_PID = 1459
 # environment
-LC_PAPER = fi_FI.UTF-8
+_ = /usr/bin/make
 # makefile (from 'makefile', line 11)
 BIN = $(BINDIR)/file
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
-# environment
-JOURNAL_STREAM = 8:37165
+JOURNAL_STREAM = 8:32414
 # makefile (from 'makefile', line 2)
 Cflags = -g -I include -Wall -lncurses
 # environment
@@ -217,19 +201,21 @@ XDG_SESSION_CLASS = user
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/juho/.gtkrc-2.0:/home/juho/.config/gtkrc-2.0
+GTK2_RC_FILES = /etc/gtk-2.0/gtkrc:/home/juho/.gtkrc-2.0:/home/juho/.gtkrc-2.0-kde4:/home/juho/.config/gtkrc-2.0
 # environment
 HOME = /home/juho
 # environment
+QT_IM_MODULE = xim
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-e992050b-1.68.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-e992050b-1.68.1-main.sock
 # environment
-XDG_SESSION_ID = 3
+TERM = dumb
+# environment
+XDG_SESSION_ID = 2
 # environment
 XCURSOR_SIZE = 24
-# environment
-IM_CONFIG_PHASE = 1
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -241,15 +227,15 @@ QT_AUTO_SCREEN_SCALE_FACTOR = 0
 # environment
 KDE_SESSION_VERSION = 5
 # default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # makefile (from 'makefile', line 1)
 CC = g++
 # environment
 KDE_FULL_SESSION = true
 # environment
-LC_IDENTIFICATION = fi_FI.UTF-8
+XDG_MENU_PREFIX = kf5-
 # variable set hash-table stats:
-# Load=119/1024=12%, Rehash=0, Collisions=18/160=11%
+# Load=112/1024=11%, Rehash=0, Collisions=14/153=9%
 
 # Pattern-specific Variable Values
 
@@ -257,10 +243,10 @@ LC_IDENTIFICATION = fi_FI.UTF-8
 
 # Directories
 
-# src (device 66307, inode 5800357): 4 files, no impossibilities.
-# . (device 66307, inode 5800032): 12 files, no impossibilities.
+# src (device 35, inode 354453): 5 files, no impossibilities.
+# . (device 35, inode 353955): 12 files, no impossibilities.
 
-# 16 files, no impossibilities in 2 directories.
+# 17 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -271,10 +257,19 @@ obj/%.o: src/%.cpp
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
+obj/window.o: src/window.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'window'
+#  Last modified 2022-06-21 20:15:47.800794599
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 19):
+	$(CC) -c $< -o $@  $(Cflags)
+
 obj/main.o: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-15 19:29:23.518087193
+#  Last modified 2022-06-21 20:15:47.531790143
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 19):
@@ -283,7 +278,7 @@ obj/main.o: src/main.cpp
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 19:27:59.919349374
+#  Last modified 2022-06-21 20:06:30.307556658
 #  File has been updated.
 #  Successfully updated.
 
@@ -294,10 +289,10 @@ clean:
 #  recipe to execute (from 'makefile', line 22):
 	rm $(OBJ)/* $(BIN)
 
-bin/file: obj/io.o obj/main.o
+bin/file: obj/io.o obj/main.o obj/window.o
 #  Implicit rule search has not been done.
  
-#  Last modified 2022-06-15 19:30:25.776117217
+#  Last modified 2022-06-21 20:15:47.872795792
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 16):
@@ -309,6 +304,13 @@ bin/file: obj/io.o obj/main.o
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+src/window.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-21 19:46:48.561894472
+#  File has been updated.
+#  Successfully updated.
+
 all: bin/file
 #  Command line target.
 #  Implicit rule search has been done.
@@ -319,40 +321,40 @@ all: bin/file
 # Not a target:
 src/io.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 19:28:29.904333065
+#  Last modified 2022-06-21 19:54:11.128301062
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-15 19:30:20.003929297
+#  Last modified 2022-06-21 20:15:39.992665249
 #  File has been updated.
 #  Successfully updated.
 
 obj/io.o: src/io.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'io'
-#  Last modified 2022-06-15 19:29:23.170075825
+#  Last modified 2022-06-21 20:15:47.103783052
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 19):
 	$(CC) -c $< -o $@  $(Cflags)
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/31=0%
+# Load=12/1024=1%, Rehash=0, Collisions=0/37=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 29 / storage = 232 B / avg = 8 B
-# current buf: size = 8162 B / used = 232 B / count = 29 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 278 B / avg = 8 B
+# current buf: size = 8162 B / used = 278 B / count = 33 / avg = 8 B
 
-# strcache performance: lookups = 43 / hit rate = 32%
+# strcache performance: lookups = 48 / hit rate = 31%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=0/43=0%
-# Finished Make data base on Wed Jun 15 19:30:27 2022
+# Load=33/8192=0%, Rehash=0, Collisions=0/48=0%
+# Finished Make data base on Tue Jun 21 20:15:52 2022
 
  

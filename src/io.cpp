@@ -7,7 +7,7 @@
 void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
 {
     std::string pathTEMP;
-    for (int i = 0; i < path.size(); i++)
+    for (size_t i = 0; i < path.size(); i++)
     {
         pathTEMP += path[i];
     }
@@ -43,7 +43,7 @@ void StringToPath(std::string path, std::vector<std::string> &pathV)
 {
     pathV.clear();
     std::string temp = "";
-    for (int i = 0; i < path.length(); ++i)
+    for (size_t i = 0; i < path.length(); ++i)
     {
 
         if (path[i] == '/')
@@ -62,7 +62,7 @@ void StringToPath(std::string path, std::vector<std::string> &pathV)
 std::string PathToString(const std::vector<std::string> &pathV)
 {
     std::string result;
-    for (int i = 0; i < pathV.size(); i++)
+    for (size_t i = 0; i < pathV.size(); i++)
         result += pathV[i];
     return result;
 }
@@ -71,7 +71,7 @@ std::string runCommand(std::string command, std::string currentPath)
 {
     char buffer[128];
     std::string result = "";
-    command = "bash -c \' cd" + currentPath + "; "+ command + " \'";
+    command = "bash -c \' cd " + currentPath + " 2</dev/null ; "+ command + " \'";
     // Open pipe to file
     FILE *pipe = popen(command.c_str(), "r");
     if (!pipe)
