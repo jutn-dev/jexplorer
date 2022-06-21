@@ -8,7 +8,8 @@ OBJ=obj
 OBJS=$(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
 
 BINDIR=bin
-BIN=$(BINDIR)/file
+BIN=$(BINDIR)/jexplorer
+
 
 all: $(BIN)
 
@@ -20,5 +21,10 @@ $(OBJ)/%.o: $(SRC)/%.cpp
 
 clean:
 	rm $(OBJ)/* $(BIN)
-
+install:
+	mkdir bin
+	mkdir obj
+	make
+	cp $(BIN) /usr/local/bin
+	chmod +x /usr/local/bin/jexplorer
 
