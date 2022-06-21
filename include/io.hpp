@@ -8,8 +8,11 @@ struct Directory
     std::string file;
 };
 
-
-//loads directory
+// loads directory
 void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path);
 
 void StringToPath(std::string path, std::vector<std::string> &pathV);
+
+std::string PathToString(const std::vector<std::string> &pathV);
+
+std::string runCommand(std::string command, std::string currentPath);

@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "make",
+			"command": "bash",
+			"args": [
+				"-c",
+				"make"
+			],
+            "group": "build"
+		}
+	]
+}

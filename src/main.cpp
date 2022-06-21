@@ -7,12 +7,11 @@
 #include "window.hpp"
 
 // void bb(char b);
-
 int main(int argc, char *argv[])
 {
-    std::string homePath = getenv("HOME");
-
+    // std::string homePath = getenv("HOME");
     std::vector<std::string> path;
+    // std::string b = runCommand("cat cdawwdadwaa", PathToString(path));
     path.push_back("/");
 
     if (argc > 1)
@@ -25,6 +24,9 @@ int main(int argc, char *argv[])
     // init("bbb");
     // loadDir(3);
 
+    bool TerminalMode = false;
+    std::string command;
+
     initscr();
     cbreak();
     noecho();
@@ -34,7 +36,9 @@ int main(int argc, char *argv[])
     getbegyx(stdscr, beginY, beginX);
     getmaxyx(stdscr, endY, endX);
 
-    window filesWin(endY - 2, endX - 4, beginY + 1, beginX + 2);
+    window filesWin(endY - 3, endX - 4, beginY + 1, beginX + 2);
+    // TerminalWindow winn(endY - 1, endX - 2, endY - 2, endX - 2);
+    
 
     // WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
     keypad(filesWin.win, true);
@@ -47,67 +51,55 @@ int main(int argc, char *argv[])
         getmaxyx(stdscr, endY, endX);
         if (oldendX != endX || oldendY != endY)
         {
-            clear();
-            filesWin.resize(endY - 2, endX - 4, true);
+            filesWin.resize(endY - 3, endX - 4, true);
         }
 
         filesWin.printMenu(Dir);
-
-        choice = wgetch(filesWin.win);
+        mvprintw(0, 2, PathToString(path).c_str());
         refresh();
-        switch (choice)
+
+        // input
+        choice = wgetch(filesWin.win);
+
+        if (TerminalMode)
         {
-        case KEY_UP:
-            if (filesWin.highlighted > 0)
+            if (choice == 10)
             {
-                filesWin.highlighted--;
-                if (-1 == filesWin.highlighted - filesWin.scroll)
-                    filesWin.scroll--;
+                std::string result = runCommand(command, PathToString(path));
+                move(endY - 1, 0);
+                if (result == "")
+                    printw("Error: command failed to execute");
+                else
+                {
+                    printw("%s", result.c_str());
+                }
             }
-            break;
-
-        case KEY_DOWN:
-            if (filesWin.highlighted < Dir.size() - 1)
+            else
             {
-                filesWin.highlighted++;
-                if (filesWin.highlighted - filesWin.scroll - filesWin.sizeY == -2)
-                    filesWin.scroll++;
+                command += (char)choice;
+                mvprintw(endY - 2, 1, "%s", command.c_str());
             }
-            break;
-
-        default:
-            break;
-        }
-        if (choice == KEY_RIGHT)
-        {
-            if (Dir[filesWin.highlighted].fileType == "dir")
+            if (choice == 27) // 27 == esc
             {
-
-                path.push_back('/' + Dir[filesWin.highlighted].file);
-                wclear(filesWin.win);
-                LoadDir(Dir, path);
-                filesWin.scroll = 0;
-                filesWin.highlighted = 0;
+                TerminalMode = false;
+                clear();
+                refresh();
             }
         }
 
-        if (choice == KEY_LEFT)
+        if (!TerminalMode)
         {
-            if (path.size() > 1)
+            erase();
+            filesWin.input(choice, Dir.size(), Dir, path);
+            if (choice == 58)
             {
-                path.pop_back();
-                wclear(filesWin.win);
-                LoadDir(Dir, path);
-                filesWin.scroll = 0;
-                filesWin.highlighted = 0;
+                TerminalMode = true;
+                command = "";
+                mvprintw(endY - 2, 0, ":");
             }
         }
 
-        if (filesWin.highlighted < 0)
-            filesWin.highlighted = 0;
-        if (filesWin.highlighted > Dir.size())
-            filesWin.highlighted = Dir.size() - 1;
-
+        //
         oldendX = endX;
         oldendY = endY;
         oldbeginX = beginX;

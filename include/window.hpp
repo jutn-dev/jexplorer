@@ -5,7 +5,7 @@
 
 #include "io.hpp"
 
-struct window
+class window
 {
     public:
     window(int p_sizeY, int p_sizeX, int p_posY, int p_posX);
@@ -13,6 +13,8 @@ struct window
     void resize(int p_sizeY, int p_sizeX, bool p_withBox);
 
     void update();
+
+    void input(int choice, int listSize, std::vector<Directory> &Dir, std::vector<std::string> &path);
 
     void printMenu(std::vector<Directory> p_Dir);
 
@@ -29,3 +31,12 @@ struct window
     int beginX, beginY, endX, endY;
     int oldbeginX, oldbeginY, oldendX, oldendY;
 };
+
+// class TerminalWindow : public window
+// {
+//     public:
+//     TerminalWindow(int p_sizeY, int p_sizeX, int p_posY, int p_posX);
+
+//     int bbbbb;
+// };
+
