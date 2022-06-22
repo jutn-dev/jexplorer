@@ -91,3 +91,8 @@ std::string runCommand(std::string command, std::string currentPath)
     pclose(pipe);
     return result;
 }
+
+void runApp(std::string app)
+{
+    system(app.c_str());
+}

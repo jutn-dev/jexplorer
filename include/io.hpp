@@ -16,3 +16,5 @@ void StringToPath(std::string path, std::vector<std::string> &pathV);
 std::string PathToString(const std::vector<std::string> &pathV);
 
 std::string runCommand(std::string command, std::string currentPath);
+
+void runApp(std::string app);

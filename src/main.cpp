@@ -4,9 +4,32 @@
 #include <vector>
 
 #include "io.hpp"
-#include "window.hpp"
+#include "windows.hpp"
 
-// void bb(char b);
+void initColors()
+{
+    if (!has_colors())
+    {
+        std::cerr << "Your terminal doesnt have color \n";
+        endwin();
+        exit(-1);
+    }
+    start_color();
+    use_default_colors();
+    if (COLOR_PAIRS < 7)
+    {
+        std::cerr << "Your terminal has only 8 colors \n";
+        endwin();
+        exit(-1);
+    }
+    if (!can_change_color())
+    {
+        std::cerr << "Your terminal cannot change colors \n";
+        endwin();
+        exit(-1);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     // std::string homePath = getenv("HOME");
@@ -24,34 +47,10 @@ int main(int argc, char *argv[])
     initscr();
     cbreak();
     noecho();
-    
-    if (!has_colors())
-    {
-        std::cerr << "Your terminal doesnt have color \n";
-        endwin();
-        return -1;
-    }
-    start_color();
-    use_default_colors();
-    if(COLOR_PAIRS < 7)
-    {
-        std::cerr << "Your terminal has only 8 colors \n";
-        endwin();
-        return -1;
-    }
-    if (!can_change_color())
-    {
-        std::cerr << "Your terminal cannot change colors \n";
-        endwin();
-        return -2;
-    }
+
+    initColors();
     init_color(2, 127, 518, 430);
     init_pair(1, COLOR_WHITE, 2);
-    // if (!has_colors_sp())
-    // {
-    //     std::cerr << "Your terminal doesnt have color";
-    //     return -1;
-    // }
 
     int sizeX, sizeY = 0;
     int oldsizeX, oldsizeY = 0;
@@ -59,9 +58,9 @@ int main(int argc, char *argv[])
 
     MenuWindow filesWin(sizeY - 3, sizeX - 4, 1, 2);
     TerminalWindow terminalWin(sizeY - (sizeY - 2), sizeX - 4, sizeY - 2, 2);
-
+    TextWindow pathWin(PathToString(path), 1, sizeX - 2, 0, 2);
     // WINDOW *filesWin = newwin(endY - 2, endX - 4, beginY + 1, beginX + 2);
-    keypad(stdscr, true);
+    keypad(pathWin.win, true);
     box(filesWin.win, 0, 0);
     // mvwprintw(filesWin,2, 2, "Wau!");
 
@@ -73,23 +72,22 @@ int main(int argc, char *argv[])
         {
             filesWin.resize(sizeY - 3, sizeX - 4, 1, 2, true);
             terminalWin.resize(terminalWin.sizeY, sizeX - 4, sizeY - 2, 2, false);
+            pathWin.resize(1, sizeX - 2, 0, 2, false);
         }
 
         filesWin.printMenu(Dir);
-        mvprintw(0, 2, PathToString(path).c_str());
-        refresh();
+        pathWin.setText(PathToString(path).c_str());        
 
-        // input
+        //input
         wrefresh(terminalWin.win);
         wrefresh(filesWin.win);
-        input = getch();
+        input = wgetch(pathWin.win);
 
         if (terminalWin.TerminalMode)
             terminalWin.input(input, PathToString(path));
 
         if (!terminalWin.TerminalMode)
         {
-            erase();
             filesWin.input(input, Dir.size(), Dir, path);
             if (input == 58)
             {

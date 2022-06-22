@@ -49,3 +49,13 @@ public:
     bool TerminalMode = false;
     std::string command;
 };
+
+class TextWindow : public window
+{
+public:
+    TextWindow(std::string p_Text ,int p_sizeY, int p_sizeX, int p_posY, int p_posX);
+
+    void setText(std::string moreText);
+
+    std::string Text;
+};
