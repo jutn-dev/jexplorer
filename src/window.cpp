@@ -104,7 +104,13 @@ void MenuWindow::printMenu(std::vector<Directory> p_Dir)
 
         if (i == highlighted)
             wattron(win, A_REVERSE);
-        mvwprintw(win, i + 1 - scroll, 1, "%s %s", p_Dir[i].fileType.c_str(), p_Dir[i].file.c_str());
+        if(p_Dir[i].fileType == "dir")
+            wattron(win, COLOR_PAIR(1));
+
+        mvwprintw(win, i + 1 - scroll, 1, "%s", p_Dir[i].fileType.c_str());
+        wattroff(win, COLOR_PAIR(1));
+        wprintw(win, "  %s" ,p_Dir[i].file.c_str());
+
         wattroff(win, A_REVERSE);
     }
 }

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jun 21 20:15:52 2022
+# Make data base, printed on Wed Jun 22 10:33:21 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8c92d06f-8e28-4784-8a12-241ef051bc7c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cea1b25b-ecd7-4dac-a6ad-b39e3e3a11ec.sock
 # environment
 VSCODE_CWD = /home/juho
 # default
@@ -69,7 +69,7 @@ CURDIR := /home/juho/couding/cpp/ConsoleApps/file
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'makefile', line 5)
 SRCS = $(wildcard $(SRC)/*.cpp)
 # automatic
@@ -79,7 +79,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXX7Xd7C4/agent.1276
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXVex8Qp/agent.1274
 # default
 .SHELLFLAGS := -c
 # environment
@@ -97,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8134
+VSCODE_PID = 3055
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -143,7 +143,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 84889ad8128f440292c9f5860d1368ed
+INVOCATION_ID = 2203b3dcc2c2409ca7e3027e9afa26dd
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -173,7 +173,7 @@ XDG_VTNR = 2
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2248
+SYSTEMD_EXEC_PID = 2238
 # environment
 DISPLAY = :0
 # environment
@@ -183,17 +183,18 @@ MAKE_VERSION := 4.3
 # environment
 KDE_SESSION_UID = 1000
 # environment
-MANAGERPID = 1257
+MANAGERPID = 1255
 # environment
-SSH_AGENT_PID = 1459
+ 
+SSH_AGENT_PID = 1457
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 11)
-BIN = $(BINDIR)/file
+BIN = $(BINDIR)/jexplorer
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:32414
+JOURNAL_STREAM = 8:36963
 # makefile (from 'makefile', line 2)
 Cflags = -g -I include -Wall -lncurses
 # environment
@@ -251,7 +252,7 @@ XDG_MENU_PREFIX = kf5-
 # Implicit Rules
 
 obj/%.o: src/%.cpp
-#  recipe to execute (from 'makefile', line 19):
+#  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -260,25 +261,25 @@ obj/%.o: src/%.cpp
 obj/window.o: src/window.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'window'
-#  Last modified 2022-06-21 20:15:47.800794599
+#  Last modified 2022-06-21 21:26:09.668843317
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 19):
+#  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
 obj/main.o: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-21 20:15:47.531790143
+#  Last modified 2022-06-21 21:34:51.148474939
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 19):
+#  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 20:06:30.307556658
+#  Last modified 2022-06-21 21:30:26.863100442
 #  File has been updated.
 #  Successfully updated.
 
@@ -286,17 +287,8 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'makefile', line 22):
+#  recipe to execute (from 'makefile', line 23):
 	rm $(OBJ)/* $(BIN)
-
-bin/file: obj/io.o obj/main.o obj/window.o
-#  Implicit rule search has not been done.
- 
-#  Last modified 2022-06-21 20:15:47.872795792
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'makefile', line 16):
-	$(CC)  $(OBJS) -o $@ $(Cflags)
 
 # Not a target:
 .DEFAULT:
@@ -307,11 +299,11 @@ bin/file: obj/io.o obj/main.o obj/window.o
 # Not a target:
 src/window.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 19:46:48.561894472
+#  Last modified 2022-06-21 21:24:22.516069706
 #  File has been updated.
 #  Successfully updated.
 
-all: bin/file
+all: bin/jexplorer
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
@@ -321,40 +313,59 @@ all: bin/file
 # Not a target:
 src/io.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 19:54:11.128301062
+#  Last modified 2022-06-21 21:29:08.474802945
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-21 20:15:39.992665249
+#  Last modified 2022-06-21 21:41:05.233663662
 #  File has been updated.
 #  Successfully updated.
+
+install:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 25):
+	mkdir -p bin
+	mkdir -p obj
+	make
+	cp $(BIN) /usr/local/bin
+	chmod +x /usr/local/bin/jexplorer
 
 obj/io.o: src/io.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'io'
-#  Last modified 2022-06-21 20:15:47.103783052
+#  Last modified 2022-06-21 21:29:10.723840171
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'makefile', line 19):
+#  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
+bin/jexplorer: obj/io.o obj/main.o obj/window.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-06-21 21:34:51.198475767
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 17):
+	$(CC)  $(OBJS) -o $@ $(Cflags)
+
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/37=0%
+# Load=13/1024=1%, Rehash=0, Collisions=0/38=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 33 / storage = 278 B / avg = 8 B
-# current buf: size = 8162 B / used = 278 B / count = 33 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 291 B / avg = 8 B
+# current buf: size = 8162 B / used = 291 B / count = 34 / avg = 8 B
 
-# strcache performance: lookups = 48 / hit rate = 31%
+# strcache performance: lookups = 50 / hit rate = 32%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=0/48=0%
-# Finished Make data base on Tue Jun 21 20:15:52 2022
+# Load=34/8192=0%, Rehash=0, Collisions=0/50=0%
+# Finished Make data base on Wed Jun 22 10:33:21 2022
 
  

@@ -71,7 +71,7 @@ std::string runCommand(std::string command, std::string currentPath)
 {
     char buffer[128];
     std::string result = "";
-    command = "bash -c \' cd " + currentPath + " 2</dev/null ; "+ command + " \'";
+    command = "bash -c \' cd " + currentPath + " 2</dev/null ; "+ command + " 2</dev/null\'";
     // Open pipe to file
     FILE *pipe = popen(command.c_str(), "r");
     if (!pipe)
@@ -84,7 +84,6 @@ std::string runCommand(std::string command, std::string currentPath)
     {
 
         // use buffer to read and add to result
-        
         if (fgets(buffer, 128, pipe) != NULL)
             result += buffer;
     }
