@@ -1,8 +1,11 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/juho/couding/cpp/ConsoleApps/file'
+g++ -c src/MenuWindow.cpp -o obj/MenuWindow.o  -g -I include -Wall -lncurses
+g++ -c src/TerminalWindow.cpp -o obj/TerminalWindow.o  -g -I include -Wall -lncurses
+g++ -c src/TextWindow.cpp -o obj/TextWindow.o  -g -I include -Wall -lncurses
 g++ -c src/io.cpp -o obj/io.o  -g -I include -Wall -lncurses
 g++ -c src/main.cpp -o obj/main.o  -g -I include -Wall -lncurses
 g++ -c src/window.cpp -o obj/window.o  -g -I include -Wall -lncurses
-g++   obj/io.o  obj/main.o  obj/window.o -o bin/jexplorer -g -I include -Wall -lncurses
+g++   obj/MenuWindow.o  obj/TerminalWindow.o  obj/TextWindow.o  obj/io.o  obj/main.o  obj/window.o -o bin/jexplorer -g -I include -Wall -lncurses
 make: Leaving directory '/home/juho/couding/cpp/ConsoleApps/file'
  

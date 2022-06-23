@@ -92,7 +92,24 @@ std::string runCommand(std::string command, std::string currentPath)
     return result;
 }
 
-void runApp(std::string app)
+void runApp(std::string file)
 {
-    system(app.c_str());
+    std::vector<std::string> fileV;
+    std::string temp = "";
+    for (size_t i = 0; i < file.length(); ++i)
+    {
+
+        if (file[i] == '.')
+        {
+            fileV.push_back(temp);
+            temp = "";
+        }
+        else
+        {
+            temp.push_back(file[i]);
+        }
+    }
+    fileV.push_back(temp);
+    if(fileV[fileV.size() - 1] == "txt")
+        system("vim");
 }

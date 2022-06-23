@@ -14,17 +14,16 @@ void initColors()
         endwin();
         exit(-1);
     }
-    start_color();
-    use_default_colors();
-    if (COLOR_PAIRS < 7)
-    {
-        std::cerr << "Your terminal has only 8 colors \n";
-        endwin();
-        exit(-1);
-    }
     if (!can_change_color())
     {
         std::cerr << "Your terminal cannot change colors \n";
+        endwin();
+        exit(-1);
+    }
+    start_color();
+    if (COLOR_PAIRS < 7)
+    {
+        std::cerr << "Your terminal has only 8 colors \n";
         endwin();
         exit(-1);
     }
@@ -49,8 +48,10 @@ int main(int argc, char *argv[])
     noecho();
 
     initColors();
-    init_color(2, 127, 518, 430);
-    init_pair(1, COLOR_WHITE, 2);
+    //use_default_colors();
+    if(can_change_color());
+        init_color(3, 127, 518, 430);
+    init_pair(1, COLOR_WHITE, 3);
 
     int sizeX, sizeY = 0;
     int oldsizeX, oldsizeY = 0;
