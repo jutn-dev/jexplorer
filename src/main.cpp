@@ -14,19 +14,20 @@ void initColors()
         endwin();
         exit(-1);
     }
+    start_color();
     if (!can_change_color())
     {
         std::cerr << "Your terminal cannot change colors \n";
         endwin();
         exit(-1);
     }
-    start_color();
     if (COLOR_PAIRS < 7)
     {
         std::cerr << "Your terminal has only 8 colors \n";
         endwin();
         exit(-1);
     }
+    use_default_colors();
 }
 
 int main(int argc, char *argv[])
@@ -49,12 +50,10 @@ int main(int argc, char *argv[])
 
     initColors();
     //use_default_colors();
-    if(can_change_color());
-        init_color(3, 127, 518, 430);
+    init_color(3, 127, 518, 430);
     init_pair(1, COLOR_WHITE, 3);
 
-    int sizeX, sizeY = 0;
-    int oldsizeX, oldsizeY = 0;
+    int sizeX, sizeY, oldsizeX, oldsizeY = 0;
     getmaxyx(stdscr, sizeY, sizeX);
 
     MenuWindow filesWin(sizeY - 3, sizeX - 4, 1, 2);
@@ -69,6 +68,8 @@ int main(int argc, char *argv[])
     while (true)
     {
         getmaxyx(stdscr, sizeY, sizeX);
+        
+        //resize all windows
         if (oldsizeX != sizeX || oldsizeY != sizeY)
         {
             filesWin.resize(sizeY - 3, sizeX - 4, 1, 2, true);
@@ -79,9 +80,9 @@ int main(int argc, char *argv[])
         filesWin.printMenu(Dir);
         pathWin.setText(PathToString(path).c_str());        
 
-        //input
         wrefresh(terminalWin.win);
         wrefresh(filesWin.win);
+        //input / update
         input = wgetch(pathWin.win);
 
         if (terminalWin.TerminalMode)
@@ -98,7 +99,6 @@ int main(int argc, char *argv[])
             }
         }
 
-        //
         oldsizeX = sizeX;
         oldsizeY = sizeY;
     }

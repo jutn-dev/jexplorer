@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <filesystem>
 #include <ncurses.h>
 
@@ -27,6 +28,9 @@ void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
             temp.file = entry.path().filename();
             Dir.push_back(temp);
         }
+        std::sort(Dir.begin(), Dir.end(), [](Directory a, Directory b) {
+            return a.file[0] < b.file[0];
+        });
     }
     catch (std::filesystem::filesystem_error &e)
     {
@@ -71,7 +75,7 @@ std::string runCommand(std::string command, std::string currentPath)
 {
     char buffer[128];
     std::string result = "";
-    command = "bash -c \' cd " + currentPath + " 2</dev/null ; "+ command + " 2</dev/null\'";
+    command = "bash -c \' cd " + currentPath + " 2</dev/null ; " + command + " 2</dev/null\'";
     // Open pipe to file
     FILE *pipe = popen(command.c_str(), "r");
     if (!pipe)
@@ -110,6 +114,6 @@ void runApp(std::string file)
         }
     }
     fileV.push_back(temp);
-    if(fileV[fileV.size() - 1] == "txt")
+    if (fileV[fileV.size() - 1] == "txt")
         system("vim");
 }

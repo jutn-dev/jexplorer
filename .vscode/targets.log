@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 23 12:42:14 2022
+# Make data base, printed on Fri Jun 24 19:11:43 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-90463524-227f-410f-9f1a-1ff2f661c7e8.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-69b2ba7a-ee20-4471-8d20-31cac90e70ca.sock
 # environment
 VSCODE_CWD = /home/juho
 # default
@@ -79,7 +79,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXX37h2qN/agent.1281
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXwP0U82/agent.1377
 # default
 .SHELLFLAGS := -c
 # environment
@@ -97,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3739
+VSCODE_PID = 36702
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -105,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # environment
 GDK_CORE_DEVICE_EVENTS = 1
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1536,unix/unix:/tmp/.ICE-unix/1536
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1633,unix/unix:/tmp/.ICE-unix/1633
 # automatic
 *F = $(notdir $*)
 # environment
@@ -128,7 +128,6 @@ SHELL = /bin/sh
 MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=none
- 
 # environment
 SHLVL = 0
 # environment
@@ -144,7 +143,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 8bb8c7bd3e954a1f9590e4e1263c1421
+INVOCATION_ID = ae8dcfd76bb04531bf96e8688273c0a3
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -174,7 +173,7 @@ XDG_VTNR = 2
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2223
+SYSTEMD_EXEC_PID = 2326
 # environment
 DISPLAY = :0
 # environment
@@ -184,9 +183,9 @@ MAKE_VERSION := 4.3
 # environment
 KDE_SESSION_UID = 1000
 # environment
-MANAGERPID = 1261
+MANAGERPID = 1357
 # environment
-SSH_AGENT_PID = 1464
+SSH_AGENT_PID = 1560
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 11)
@@ -194,7 +193,7 @@ BIN = $(BINDIR)/jexplorer
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:27630
+JOURNAL_STREAM = 8:36906
 # makefile (from 'makefile', line 2)
 Cflags = -g -I include -Wall -lncurses
 # environment
@@ -236,7 +235,7 @@ KDE_FULL_SESSION = true
 # environment
 XDG_MENU_PREFIX = kf5-
 # variable set hash-table stats:
-# Load=112/1024=11%, Rehash=0, Collisions=14/158=9%
+# Load=112/1024=11%, Rehash=0, Collisions=14/153=9%
 
 # Pattern-specific Variable Values
 
@@ -244,8 +243,8 @@ XDG_MENU_PREFIX = kf5-
 
 # Directories
 
-# src (device 35, inode 354453): 8 files, no impossibilities.
-# . (device 35, inode 353955): 12 files, no impossibilities.
+# src (device 34, inode 354453): 8 files, no impossibilities.
+# . (device 34, inode 353955): 12 files, no impossibilities.
 
 # 20 files, no impossibilities in 2 directories.
 
@@ -267,21 +266,28 @@ obj/TextWindow.o: src/TextWindow.cpp
 #  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
-# Not a target:
-obj/window.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/window.o: src/window.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'window'
+#  Last modified 2022-06-22 18:22:10.414539804
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 20):
+	$(CC) -c $< -o $@  $(Cflags)
 
-# Not a target:
-obj/main.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/main.o: src/main.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-06-23 13:39:39.236132076
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'makefile', line 20):
+	$(CC) -c $< -o $@  $(Cflags)
 
 # Not a target:
 src/MenuWindow.cpp:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-06-22 18:16:13.171703705
 #  File has been updated.
 #  Successfully updated.
@@ -309,6 +315,13 @@ src/TerminalWindow.cpp:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+src/main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-23 13:39:37.29410024
+#  File has been updated.
+#  Successfully updated.
+
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -322,14 +335,19 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+src/window.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-22 18:16:02.146523588
+#  File has been updated.
+#  Successfully updated.
+
 all: bin/jexplorer
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 
 # Not a target:
 src/io.cpp:
@@ -359,37 +377,17 @@ install:
 obj/io.o: src/io.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'io'
-#  Last modified 2022-06-22 20:57:13.099627685
+#  Last modified 2022-06-23 12:42:30.747169041
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/io.o
-# automatic
-# * := io
-# automatic
-# < := src/io.cpp
-# automatic
-# + := src/io.cpp
-# automatic
-# % := 
-# automatic
-# ^ := src/io.cpp
-# automatic
-# ? := src/io.cpp
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
 bin/jexplorer: obj/MenuWindow.o obj/TerminalWindow.o obj/TextWindow.o obj/io.o obj/main.o obj/window.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-22 20:57:13.15362857
+#  Last modified 2022-06-23 13:39:39.290132961
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 #  recipe to execute (from 'makefile', line 17):
 	$(CC)  $(OBJS) -o $@ $(Cflags)
 
@@ -403,19 +401,19 @@ obj/MenuWindow.o: src/MenuWindow.cpp
 	$(CC) -c $< -o $@  $(Cflags)
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/48=0%
+# Load=19/1024=2%, Rehash=0, Collisions=0/56=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 453 B / avg = 10 B
-# current buf: size = 8162 B / used = 453 B / count = 42 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 46 / storage = 493 B / avg = 10 B
+# current buf: size = 8162 B / used = 493 B / count = 46 / avg = 10 B
 
-# strcache performance: lookups = 59 / hit rate = 28%
+# strcache performance: lookups = 65 / hit rate = 29%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=0/59=0%
-# Finished Make data base on Thu Jun 23 12:42:14 2022
+# Load=46/8192=1%, Rehash=0, Collisions=0/65=0%
+# Finished Make data base on Fri Jun 24 19:11:43 2022
 
  
