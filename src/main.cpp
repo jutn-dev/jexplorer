@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 
     int sizeX, sizeY, oldsizeX, oldsizeY = 0;
     getmaxyx(stdscr, sizeY, sizeX);
-
+    
     MenuWindow filesWin(sizeY - 3, sizeX - 4, 1, 2);
     TerminalWindow terminalWin(sizeY - (sizeY - 2), sizeX - 4, sizeY - 2, 2);
     TextWindow pathWin(PathToString(path), 1, sizeX - 2, 0, 2);

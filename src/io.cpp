@@ -19,13 +19,19 @@ void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
         for (const auto &entry : std::filesystem::directory_iterator(pathTEMP))
         {
             Directory temp;
+            temp.file = entry.path().filename();
             if (entry.is_directory())
                 temp.fileType = "dir";
             else if (entry.is_regular_file())
-                temp.fileType = "file";
+            {
+                int j = temp.file.rfind('.');
+                if(j == 0 || temp.file.find('.') == std::string::npos)
+                    temp.fileType = "file";
+                else
+                    temp.fileType = temp.file.substr(j+1);
+            }
             else
                 temp.fileType = "error";
-            temp.file = entry.path().filename();
             Dir.push_back(temp);
         }
         std::sort(Dir.begin(), Dir.end(), [](Directory a, Directory b)
@@ -38,8 +44,7 @@ void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
                         if(a.file[i] != b.file[i])
                             return a.file[i] < b.file[i];
                       }
-                      return a.file[0] < b.file[0];
-                  });
+                      return a.file[0] < b.file[0]; });
     }
     catch (std::filesystem::filesystem_error &e)
     {
