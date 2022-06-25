@@ -32,6 +32,8 @@ void initColors()
 
 int main(int argc, char *argv[])
 {
+    std::cout << "b ää b \n";
+
     // std::string homePath = getenv("HOME");
     std::vector<std::string> path;
     path.push_back("/");

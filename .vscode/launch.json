@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/file",
+            "program": "${workspaceFolder}/bin/jexplorer",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

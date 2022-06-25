@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 24 19:11:43 2022
+# Make data base, printed on Sat Jun 25 17:04:57 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-69b2ba7a-ee20-4471-8d20-31cac90e70ca.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cabd5860-41bf-49ea-8d6e-e40b88c738ca.sock
 # environment
 VSCODE_CWD = /home/juho
 # default
@@ -79,7 +79,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXwP0U82/agent.1377
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXZjmnn4/agent.3239
 # default
 .SHELLFLAGS := -c
 # environment
@@ -97,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 36702
+VSCODE_PID = 8847
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -105,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # environment
 GDK_CORE_DEVICE_EVENTS = 1
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/1633,unix/unix:/tmp/.ICE-unix/1633
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/3494,unix/unix:/tmp/.ICE-unix/3494
 # automatic
 *F = $(notdir $*)
 # environment
@@ -143,7 +143,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = ae8dcfd76bb04531bf96e8688273c0a3
+INVOCATION_ID = ed52109eeb204743ab5a533283d10614
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -173,7 +173,7 @@ XDG_VTNR = 2
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 2326
+SYSTEMD_EXEC_PID = 4182
 # environment
 DISPLAY = :0
 # environment
@@ -183,9 +183,9 @@ MAKE_VERSION := 4.3
 # environment
 KDE_SESSION_UID = 1000
 # environment
-MANAGERPID = 1357
+MANAGERPID = 3219
 # environment
-SSH_AGENT_PID = 1560
+SSH_AGENT_PID = 3423
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 11)
@@ -193,7 +193,7 @@ BIN = $(BINDIR)/jexplorer
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:36906
+JOURNAL_STREAM = 8:34003
 # makefile (from 'makefile', line 2)
 Cflags = -g -I include -Wall -lncurses
 # environment
@@ -215,6 +215,7 @@ TERM = dumb
 # environment
 XDG_SESSION_ID = 2
 # environment
+ 
 XCURSOR_SIZE = 24
 # default
 .RECIPEPREFIX := 
@@ -243,8 +244,8 @@ XDG_MENU_PREFIX = kf5-
 
 # Directories
 
-# src (device 34, inode 354453): 8 files, no impossibilities.
-# . (device 34, inode 353955): 12 files, no impossibilities.
+# src (device 35, inode 354453): 8 files, no impossibilities.
+# . (device 35, inode 353955): 12 files, no impossibilities.
 
 # 20 files, no impossibilities in 2 directories.
 
@@ -278,7 +279,7 @@ obj/window.o: src/window.cpp
 obj/main.o: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-23 13:39:39.236132076
+#  Last modified 2022-06-24 19:51:29.951571859
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -287,7 +288,6 @@ obj/main.o: src/main.cpp
 # Not a target:
 src/MenuWindow.cpp:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-06-22 18:16:13.171703705
 #  File has been updated.
 #  Successfully updated.
@@ -318,7 +318,7 @@ src/TerminalWindow.cpp:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-23 13:39:37.29410024
+#  Last modified 2022-06-24 19:51:28.162542336
 #  File has been updated.
 #  Successfully updated.
 
@@ -352,7 +352,7 @@ all: bin/jexplorer
 # Not a target:
 src/io.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 21:00:25.21877564
+#  Last modified 2022-06-24 19:47:56.33104216
 #  File has been updated.
 #  Successfully updated.
 
@@ -377,7 +377,7 @@ install:
 obj/io.o: src/io.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'io'
-#  Last modified 2022-06-23 12:42:30.747169041
+#  Last modified 2022-06-24 19:48:00.973118926
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -385,7 +385,7 @@ obj/io.o: src/io.cpp
 
 bin/jexplorer: obj/MenuWindow.o obj/TerminalWindow.o obj/TextWindow.o obj/io.o obj/main.o obj/window.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-23 13:39:39.290132961
+#  Last modified 2022-06-24 19:51:30.01157285
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 17):
@@ -414,6 +414,6 @@ obj/MenuWindow.o: src/MenuWindow.cpp
 # strcache performance: lookups = 65 / hit rate = 29%
 # hash-table stats:
 # Load=46/8192=1%, Rehash=0, Collisions=0/65=0%
-# Finished Make data base on Fri Jun 24 19:11:43 2022
+# Finished Make data base on Sat Jun 25 17:04:57 2022
 
  

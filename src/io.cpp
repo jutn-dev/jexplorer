@@ -28,9 +28,18 @@ void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
             temp.file = entry.path().filename();
             Dir.push_back(temp);
         }
-        std::sort(Dir.begin(), Dir.end(), [](Directory a, Directory b) {
-            return a.file[0] < b.file[0];
-        });
+        std::sort(Dir.begin(), Dir.end(), [](Directory a, Directory b)
+                  {
+                    std::transform(a.file.begin(),a.file.end(), a.file.begin(), tolower);
+                    std::transform(b.file.begin(),b.file.end(), b.file.begin(), tolower);
+                    //std::transform(str.begin(), str.end(), str.begin(), std::tolower);
+                      for (size_t i = 0; i < std::min(a.file.size(), b.file.size()); i++)
+                      {
+                        if(a.file[i] != b.file[i])
+                            return a.file[i] < b.file[i];
+                      }
+                      return a.file[0] < b.file[0];
+                  });
     }
     catch (std::filesystem::filesystem_error &e)
     {
