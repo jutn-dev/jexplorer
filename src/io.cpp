@@ -5,7 +5,7 @@
 
 #include "io.hpp"
 
-void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
+void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
 {
     std::string pathTEMP;
     for (size_t i = 0; i < path.size(); i++)
@@ -18,23 +18,23 @@ void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path)
     {
         for (const auto &entry : std::filesystem::directory_iterator(pathTEMP))
         {
-            Directory temp;
+            File temp;
             temp.file = entry.path().filename();
             if (entry.is_directory())
                 temp.fileType = "dir";
             else if (entry.is_regular_file())
             {
                 int j = temp.file.rfind('.');
-                if(j == 0 || temp.file.find('.') == std::string::npos)
+                if (j == 0 || temp.file.find('.') == std::string::npos)
                     temp.fileType = "file";
                 else
-                    temp.fileType = temp.file.substr(j+1);
+                    temp.fileType = temp.file.substr(j + 1);
             }
             else
                 temp.fileType = "error";
             Dir.push_back(temp);
         }
-        std::sort(Dir.begin(), Dir.end(), [](Directory a, Directory b)
+        std::sort(Dir.begin(), Dir.end(), [](File a, File b)
                   {
                     std::transform(a.file.begin(),a.file.end(), a.file.begin(), tolower);
                     std::transform(b.file.begin(),b.file.end(), b.file.begin(), tolower);
@@ -110,24 +110,14 @@ std::string runCommand(std::string command, std::string currentPath)
     return result;
 }
 
-void runApp(std::string file)
+void runApp(File file)
 {
-    std::vector<std::string> fileV;
-    std::string temp = "";
-    for (size_t i = 0; i < file.length(); ++i)
+    if (file.fileType == "txt")
     {
+        endwin();
+        FILE *pipe = popen("vim", "w");
+        pclose(pipe);
+        initscr();
 
-        if (file[i] == '.')
-        {
-            fileV.push_back(temp);
-            temp = "";
-        }
-        else
-        {
-            temp.push_back(file[i]);
-        }
     }
-    fileV.push_back(temp);
-    if (fileV[fileV.size() - 1] == "txt")
-        system("vim");
 }

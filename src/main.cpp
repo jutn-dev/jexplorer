@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         StringToPath(argv[1], path);
     }
 
-    std::vector<Directory> Dir;
+    std::vector<File> Dir;
     LoadDir(Dir, path);
 
     initscr();

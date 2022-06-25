@@ -2,14 +2,14 @@
 #include <iostream>
 #include <vector>
 
-struct Directory
+struct File
 {
     std::string fileType;
     std::string file;
 };
 
 // loads directory
-void LoadDir(std::vector<Directory> &Dir, std::vector<std::string> path);
+void LoadDir(std::vector<File> &Dir, std::vector<std::string> path);
 
 void StringToPath(std::string path, std::vector<std::string> &pathV);
 
@@ -17,4 +17,4 @@ std::string PathToString(const std::vector<std::string> &pathV);
 
 std::string runCommand(std::string command, std::string currentPath);
 
-void runApp(std::string app);
+void runApp(File file);

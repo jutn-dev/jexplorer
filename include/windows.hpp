@@ -27,9 +27,9 @@ class MenuWindow : public window
 public:
     MenuWindow(int p_sizeY, int p_sizeX, int p_posY, int p_posX);
 
-    void input(int choice, int listSize, std::vector<Directory> &Dir, std::vector<std::string> &path);
+    void input(int choice, int listSize, std::vector<File> &Dir, std::vector<std::string> &path);
 
-    void printMenu(std::vector<Directory> p_Dir);
+    void printMenu(std::vector<File> p_Dir);
 
     // Doesn't exist
     void printMenu(std::vector<std::string> p_stuff);

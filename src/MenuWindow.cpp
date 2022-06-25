@@ -6,7 +6,7 @@
 MenuWindow::MenuWindow(int p_sizeY, int p_sizeX, int p_posY, int p_posX)
     : window(p_sizeY, p_sizeX, p_posY, p_posX) {}
 
-void MenuWindow::input(int choice, int listSize, std::vector<Directory> &Dir, std::vector<std::string> &path)
+void MenuWindow::input(int choice, int listSize, std::vector<File> &Dir, std::vector<std::string> &path)
 {
     switch (choice)
     {
@@ -49,6 +49,11 @@ void MenuWindow::input(int choice, int listSize, std::vector<Directory> &Dir, st
             scroll = 0;
             highlighted = 0;
         }
+        else
+        {
+            runApp(Dir[highlighted]);
+        }
+        
     }
 
     if (choice == KEY_LEFT)
@@ -65,7 +70,7 @@ void MenuWindow::input(int choice, int listSize, std::vector<Directory> &Dir, st
     }
 }
 
-void MenuWindow::printMenu(std::vector<Directory> p_Dir)
+void MenuWindow::printMenu(std::vector<File> p_Dir)
 {
     werase(win);
     box(win, 0, 0);
