@@ -20,6 +20,7 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
         {
             File temp;
             temp.file = entry.path().filename();
+            temp.path = entry.path();
             if (entry.is_directory())
                 temp.fileType = "dir";
             else if (entry.is_regular_file())
@@ -115,7 +116,8 @@ void runApp(File file)
     if (file.fileType == "txt")
     {
         endwin();
-        FILE *pipe = popen("vim", "w");
+        std::string program = "vim " + file.path;
+        FILE *pipe = popen(program.c_str() , "w");
         pclose(pipe);
         initscr();
 

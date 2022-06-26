@@ -6,6 +6,7 @@ struct File
 {
     std::string fileType;
     std::string file;
+    std::string path;
 };
 
 // loads directory

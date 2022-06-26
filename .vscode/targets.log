@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 25 17:04:57 2022
+# Make data base, printed on Sun Jun 26 18:08:02 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ GTK_RC_FILES = /etc/gtk/gtkrc:/home/juho/.gtkrc:/home/juho/.config/gtkrc
 # makefile (from 'makefile', line 10)
 BINDIR = bin
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-cabd5860-41bf-49ea-8d6e-e40b88c738ca.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f30f93cf-dfec-4e76-9918-d2596e6cf471.sock
 # environment
 VSCODE_CWD = /home/juho
 # default
@@ -79,7 +79,7 @@ PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXXZjmnn4/agent.3239
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXTSZFRl/agent.3252
 # default
 .SHELLFLAGS := -c
 # environment
@@ -97,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8847
+VSCODE_PID = 36192
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -105,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # environment
 GDK_CORE_DEVICE_EVENTS = 1
 # environment
-SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/3494,unix/unix:/tmp/.ICE-unix/3494
+SESSION_MANAGER = local/unix:@/tmp/.ICE-unix/3506,unix/unix:/tmp/.ICE-unix/3506
 # automatic
 *F = $(notdir $*)
 # environment
@@ -143,7 +143,7 @@ MAKEFILES :=
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = ed52109eeb204743ab5a533283d10614
+INVOCATION_ID = 3092cac11db54293a6932a3a4d268149
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -173,7 +173,7 @@ XDG_VTNR = 2
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 4182
+SYSTEMD_EXEC_PID = 4205
 # environment
 DISPLAY = :0
 # environment
@@ -183,9 +183,9 @@ MAKE_VERSION := 4.3
 # environment
 KDE_SESSION_UID = 1000
 # environment
-MANAGERPID = 3219
+MANAGERPID = 3232
 # environment
-SSH_AGENT_PID = 3423
+SSH_AGENT_PID = 3435
 # environment
 _ = /usr/bin/make
 # makefile (from 'makefile', line 11)
@@ -193,7 +193,7 @@ BIN = $(BINDIR)/jexplorer
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:34003
+JOURNAL_STREAM = 8:39937
 # makefile (from 'makefile', line 2)
 Cflags = -g -I include -Wall -lncurses
 # environment
@@ -215,7 +215,6 @@ TERM = dumb
 # environment
 XDG_SESSION_ID = 2
 # environment
- 
 XCURSOR_SIZE = 24
 # default
 .RECIPEPREFIX := 
@@ -261,7 +260,7 @@ obj/%.o: src/%.cpp
 obj/TextWindow.o: src/TextWindow.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'TextWindow'
-#  Last modified 2022-06-22 20:42:37.713267576
+#  Last modified 2022-06-25 20:37:50.328892104
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -270,7 +269,7 @@ obj/TextWindow.o: src/TextWindow.cpp
 obj/window.o: src/window.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'window'
-#  Last modified 2022-06-22 18:22:10.414539804
+#  Last modified 2022-06-25 20:37:50.534895568
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -279,7 +278,7 @@ obj/window.o: src/window.cpp
 obj/main.o: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-06-24 19:51:29.951571859
+#  Last modified 2022-06-25 20:54:19.44480704
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -288,19 +287,20 @@ obj/main.o: src/main.cpp
 # Not a target:
 src/MenuWindow.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-22 18:16:13.171703705
+#  Last modified 2022-06-25 20:39:28.26153895
 #  File has been updated.
 #  Successfully updated.
 
 obj/TerminalWindow.o: src/TerminalWindow.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'TerminalWindow'
-#  Last modified 2022-06-22 18:22:10.213536523
+#  Last modified 2022-06-25 20:37:50.12888874
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
 	$(CC) -c $< -o $@  $(Cflags)
 
+ 
 # Not a target:
 src/TextWindow.cpp:
 #  Implicit rule search has been done.
@@ -318,7 +318,7 @@ src/TerminalWindow.cpp:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-24 19:51:28.162542336
+#  Last modified 2022-06-25 20:54:02.822521657
 #  File has been updated.
 #  Successfully updated.
 
@@ -352,7 +352,7 @@ all: bin/jexplorer
 # Not a target:
 src/io.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-24 19:47:56.33104216
+#  Last modified 2022-06-25 21:01:30.202188067
 #  File has been updated.
 #  Successfully updated.
 
@@ -377,7 +377,7 @@ install:
 obj/io.o: src/io.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'io'
-#  Last modified 2022-06-24 19:48:00.973118926
+#  Last modified 2022-06-25 21:01:36.597297404
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -385,7 +385,7 @@ obj/io.o: src/io.cpp
 
 bin/jexplorer: obj/MenuWindow.o obj/TerminalWindow.o obj/TextWindow.o obj/io.o obj/main.o obj/window.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-24 19:51:30.01157285
+#  Last modified 2022-06-25 21:01:36.645298225
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 17):
@@ -394,7 +394,7 @@ bin/jexplorer: obj/MenuWindow.o obj/TerminalWindow.o obj/TextWindow.o obj/io.o o
 obj/MenuWindow.o: src/MenuWindow.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'MenuWindow'
-#  Last modified 2022-06-22 18:22:10.004533111
+#  Last modified 2022-06-25 20:39:31.168587835
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'makefile', line 20):
@@ -414,6 +414,6 @@ obj/MenuWindow.o: src/MenuWindow.cpp
 # strcache performance: lookups = 65 / hit rate = 29%
 # hash-table stats:
 # Load=46/8192=1%, Rehash=0, Collisions=0/65=0%
-# Finished Make data base on Sat Jun 25 17:04:57 2022
+# Finished Make data base on Sun Jun 26 18:08:02 2022
 
  

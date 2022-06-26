@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
     LoadDir(Dir, path);
 
     initscr();
+    clear();
     cbreak();
     noecho();
 
