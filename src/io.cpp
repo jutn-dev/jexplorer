@@ -67,7 +67,8 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
 
 void LoadConfig()
 {
-    std::ifstream in("jexplorer.conf");
+    std::string homePath = getenv("HOME");
+    std::ifstream in(homePath + "/.config/jexplorer/jexplorer.conf");
 
     if (!in.is_open())
     {
