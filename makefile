@@ -14,6 +14,8 @@ BIN=$(BINDIR)/jexplorer
 all: $(BIN)
 
 $(BIN): $(OBJS)
+	mkdir -p bin
+	mkdir -p obj
 	$(CC)  $(OBJS) -o $@ $(Cflags)
 
 $(OBJ)/%.o: $(SRC)/%.cpp
