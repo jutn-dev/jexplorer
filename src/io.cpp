@@ -1,10 +1,17 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <array>
+#include <string>
+
 #include <filesystem>
+#include <fstream>
+
 #include <ncurses.h>
 
 #include "io.hpp"
 
+extern std::vector<std::array<std::string, 2>> open_file_using;
 void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
 {
     std::string pathTEMP;
@@ -58,6 +65,34 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
     }
 }
 
+void LoadConfig()
+{
+    std::ifstream in("jexplorer.conf");
+
+    if (!in.is_open())
+    {
+        return;
+    }
+    std::string full;
+    std::vector<std::string> args;
+    while (getline(in, full, '\n'))
+    {
+        if (full[0] != '#')
+        {
+            args.clear();
+            splitStringToVector(full, args, ' ');
+            if (args[0] == "open_file")
+            {
+                std::array<std::string, 2> temp;
+                temp[0] = args[1];
+                temp[1] = args[2];
+                open_file_using.push_back(temp);
+            }
+        }
+    }
+    in.close();
+}
+
 void StringToPath(std::string path, std::vector<std::string> &pathV)
 {
     pathV.clear();
@@ -84,6 +119,25 @@ std::string PathToString(const std::vector<std::string> &pathV)
     for (size_t i = 0; i < pathV.size(); i++)
         result += pathV[i];
     return result;
+}
+
+void splitStringToVector(std::string string, std::vector<std::string> &vector, char splitter)
+{
+    std::string temp = "";
+    for (size_t i = 0; i < string.length(); ++i)
+    {
+
+        if (string[i] == splitter)
+        {
+            vector.push_back(temp);
+            temp = "";
+        }
+        else
+        {
+            temp.push_back(string[i]);
+        }
+    }
+    vector.push_back(temp);
 }
 
 std::string runCommand(std::string command, std::string currentPath)
@@ -113,13 +167,15 @@ std::string runCommand(std::string command, std::string currentPath)
 
 void runApp(File file)
 {
-    if (file.fileType == "txt")
+    for (size_t i = 0; i < open_file_using.size(); i++)
     {
-        endwin();
-        std::string program = "vim " + file.path;
-        FILE *pipe = popen(program.c_str() , "w");
-        pclose(pipe);
-        initscr();
-
+        if (file.fileType == open_file_using[i][0])
+        {
+            endwin();
+            std::string program = open_file_using[i][1] + ' ' + file.path;
+            FILE *pipe = popen(program.c_str(), "w");
+            pclose(pipe);
+            initscr();
+        }
     }
 }

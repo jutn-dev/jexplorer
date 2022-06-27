@@ -2,9 +2,14 @@
 #include <ncurses.h>
 #include <filesystem>
 #include <vector>
+#include <array>
 
 #include "io.hpp"
 #include "windows.hpp"
+
+
+std::vector<std::array<std::string,2>> open_file_using;
+
 
 void initColors()
 {
@@ -32,8 +37,7 @@ void initColors()
 
 int main(int argc, char *argv[])
 {
-    std::cout << "b ää b \n";
-
+    LoadConfig();
     // std::string homePath = getenv("HOME");
     std::vector<std::string> path;
     path.push_back("/");

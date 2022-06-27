@@ -31,5 +31,7 @@
 *.out
 *.app
 
+*.conf
+
 file
 jexplorer
