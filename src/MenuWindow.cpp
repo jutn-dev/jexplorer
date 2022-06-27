@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ncurses.h>
 
+#include "io.hpp"
 #include "windows.hpp"
 
 MenuWindow::MenuWindow(int p_sizeY, int p_sizeX, int p_posY, int p_posX)
