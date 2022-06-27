@@ -9,7 +9,7 @@ TerminalWindow::TerminalWindow(int p_sizeY, int p_sizeX, int p_posY, int p_posX)
 
 void TerminalWindow::input(int input, std::string path)
 {
-    if (input == 10)
+    if (input == 10) // 10 == enter
     {
         std::string result = runCommand(command, path);
         if (result == "")
