@@ -12,13 +12,11 @@
 #include "io.hpp"
 
 extern std::vector<std::array<std::string, 2>> open_file_using;
+
 void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
 {
     std::string pathTEMP;
-    for (size_t i = 0; i < path.size(); i++)
-    {
-        pathTEMP += path[i];
-    }
+    pathTEMP = PathToString(path);
 
     Dir.clear();
     try
@@ -28,10 +26,18 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
             File temp;
             temp.file = entry.path().filename();
             temp.path = entry.path();
+
+            // detect if file is hidden
+            if (temp.file[0] == '.')
+                temp.hidden = true;
+            
+            //get file/directory type
             if (entry.is_directory())
                 temp.fileType = "dir";
+            
             else if (entry.is_regular_file())
             {
+                // get file's type
                 int j = temp.file.rfind('.');
                 if (j == 0 || temp.file.find('.') == std::string::npos)
                     temp.fileType = "file";
@@ -39,14 +45,15 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
                     temp.fileType = temp.file.substr(j + 1);
             }
             else
-                temp.fileType = "error";
+                temp.fileType = "unknown";
+
             Dir.push_back(temp);
         }
+        //sort directory
         std::sort(Dir.begin(), Dir.end(), [](File a, File b)
                   {
                     std::transform(a.file.begin(),a.file.end(), a.file.begin(), tolower);
                     std::transform(b.file.begin(),b.file.end(), b.file.begin(), tolower);
-                    //std::transform(str.begin(), str.end(), str.begin(), std::tolower);
                       for (size_t i = 0; i < std::min(a.file.size(), b.file.size()); i++)
                       {
                         if(a.file[i] != b.file[i])
@@ -56,10 +63,8 @@ void LoadDir(std::vector<File> &Dir, std::vector<std::string> path)
     }
     catch (std::filesystem::filesystem_error &e)
     {
-        std::error_code b;
-
+        //error 13 = permission denied
         if (e.code().value() == 13)
-
             mvprintw(getmaxy(stdscr) - 1, 0, "Error: permission denied");
         refresh();
     }
