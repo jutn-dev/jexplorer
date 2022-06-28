@@ -33,5 +33,6 @@
 
 *.conf
 
+build
 file
 jexplorer
