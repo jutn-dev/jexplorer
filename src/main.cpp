@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
     cbreak();
     noecho();
 
+
     initColors();
     //use_default_colors();
     init_color(3, 127, 518, 430);
